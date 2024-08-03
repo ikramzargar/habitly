@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habitly/screens/splash_screen.dart';
+import 'package:habitly/screens/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
