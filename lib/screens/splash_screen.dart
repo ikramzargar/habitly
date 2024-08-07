@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
           Padding(
             padding: const EdgeInsets.only(top: 40),
@@ -37,6 +37,7 @@ class SplashScreen extends StatelessWidget {
             'Embrace each day, track your progress, and conquer your goals with the Habitly app, making daily success a habit .',
             style: AppTextStyles.bodyText,
           ),
+          const SizedBox(height: 20,),
           BlueButton(
             text: 'Let`s get started',
             callback: () {
