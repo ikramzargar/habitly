@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habitly/screens/register.dart';
 
 import '../globals/colors.dart';
 import '../globals/text_styles.dart';
@@ -13,12 +14,14 @@ class SplashScreen extends StatelessWidget {
       color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           Padding(
             padding: const EdgeInsets.only(top: 40),
-            child: Image.asset('images/splsh_4.png',width: 350,),
+            child: Image.asset(
+              'images/splsh_4.png',
+              width: 350,
+            ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -37,24 +40,29 @@ class SplashScreen extends StatelessWidget {
             'Embrace each day, track your progress, and conquer your goals with the Habitly app, making daily success a habit .',
             style: AppTextStyles.bodyText,
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           BlueButton(
             text: 'Let`s get started',
             callback: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) =>  Register()));
+            },
+          ),
+          MaterialButton(
+            onPressed: () {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(builder: (_) => const Material()),
               );
             },
-          ),
-          MaterialButton(
-            onPressed: () {},
             child: Text(
               'I already have an account',
               style: AppTextStyles.bodyText.copyWith(
                 color: AppColors.blue,
               ),
             ),
-          )
+          ),
         ]),
       ),
     );
