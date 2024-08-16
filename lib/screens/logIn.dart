@@ -1,40 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:habitly/globals/colors.dart';
-import 'package:habitly/screens/logIn.dart';
-import 'package:habitly/screens/setup.dart';
+import 'package:habitly/screens/home.dart';
+import 'package:habitly/screens/register.dart';
 import 'package:habitly/services/auth.dart';
 import 'package:habitly/widgtes/blue_button.dart';
 import 'package:habitly/widgtes/snack_bar.dart';
 import '../globals/text_styles.dart';
 
-class Register extends StatefulWidget {
-  const Register({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<Register> createState() => _RegisterState();
+  State<Login> createState() => _LoginState();
 }
 
-class _RegisterState extends State<Register> {
+class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool isLoading = false;
 
-  void signUpUser() async {
+  void loginUser() async {
     setState(() {
       isLoading = true;
     });
 
-    SignUpResult result = await AuthService().signUp(
+    SignInResult result = await AuthService().signIn(
       email: _emailController.text,
       password: _passwordController.text,
-      name: _nameController.text,
     );
 
-    if (result.status == SignUpStatus.success) {
+    if (result.status == SignInStatus.success) {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const Setup()),
+        MaterialPageRoute(builder: (context) => const Home()), // Replace with your actual home screen
       );
     } else {
       setState(() {
@@ -54,7 +52,6 @@ class _RegisterState extends State<Register> {
 
   @override
   void dispose() {
-    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -62,7 +59,7 @@ class _RegisterState extends State<Register> {
 
   void _submit() {
     if (_formKey.currentState?.validate() ?? false) {
-      signUpUser();
+      loginUser();
     }
   }
 
@@ -82,36 +79,16 @@ class _RegisterState extends State<Register> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 50),
                     Text(
-                      'Let`s get started',
+                      'Welcome Back',
                       textAlign: TextAlign.start,
                       style: AppTextStyles.heading1,
                     ),
                     const SizedBox(height: 20),
                     Text(
-                      'Sign up now for the habit tracker app and embark on a '
-                      'journey of positive change!',
+                      'Log in to access your account and continue your journey.',
                       style: AppTextStyles.bodyText,
-                    ),
-                    const SizedBox(height: 30),
-                    TextFormField(
-                      controller: _nameController,
-                      decoration: InputDecoration(
-                        hintText: 'Name',
-                        border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: AppColors.blue,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your name';
-                        }
-                        return null;
-                      },
                     ),
                     const SizedBox(height: 30),
                     TextFormField(
@@ -171,17 +148,17 @@ class _RegisterState extends State<Register> {
                       },
                     ),
                     const SizedBox(height: 150),
-                    BlueButton(text: 'Continue', callback: _submit),
+                    BlueButton(text: 'Log In', callback: _submit),
                     const SizedBox(height: 50),
                     Center(
                       child: MaterialButton(
                         onPressed: () {
                           Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (_) => const Login()),
+                            MaterialPageRoute(builder: (_) => const Register()), // Navigate to register page
                           );
                         },
                         child: Text(
-                          'I already have an account',
+                          'Don\'t have an account? Sign up',
                           style: AppTextStyles.bodyText.copyWith(
                             color: AppColors.blue,
                           ),
