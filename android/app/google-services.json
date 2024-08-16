@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "532303294476",
+    "project_id": "habitly-ea6e6",
+    "storage_bucket": "habitly-ea6e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532303294476:android:06175763b053ed4082be29",
+        "android_client_info": {
+          "package_name": "com.example.habitly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWvaguejFMWo3uke3krjRUZvI21Mlk5iQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
