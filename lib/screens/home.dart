@@ -18,7 +18,6 @@ class HomeScreen extends StatelessWidget {
           final habit = habits[index];
           return ListTile(
             title: Text(habit.name),
-            subtitle: Text(habit.description),
             trailing: Checkbox(
               value: habit.isDone, // Assume you have an isDone field in Habit
               onChanged: (bool? value) {

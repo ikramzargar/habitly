@@ -9,6 +9,13 @@ class AppTextStyles {
     color: Colors.black,
   );
 
+
+  static final TextStyle heading2 = GoogleFonts.montserrat(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+
   static final TextStyle bodyText = GoogleFonts.montserrat(
     fontSize: 16,
     color: AppColors.grey,
