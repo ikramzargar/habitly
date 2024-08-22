@@ -34,7 +34,7 @@ class _RegisterState extends State<Register> {
 
     if (result.status == SignUpStatus.success) {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const Setup()),
+        MaterialPageRoute(builder: (context) =>  SetupScreen()),
       );
     } else {
       setState(() {

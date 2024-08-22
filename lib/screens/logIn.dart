@@ -32,7 +32,7 @@ class _LoginState extends State<Login> {
 
     if (result.status == SignInStatus.success) {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const Home()), // Replace with your actual home screen
+        MaterialPageRoute(builder: (context) =>  Material()), // Replace with your actual home screen
       );
     } else {
       setState(() {

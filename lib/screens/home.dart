@@ -1,11 +1,33 @@
 import 'package:flutter/material.dart';
-class Home extends StatelessWidget {
-  const Home({super.key});
+import 'package:habitly/models/habit.dart';
+
+class HomeScreen extends StatelessWidget {
+  final List<Habit> habits;
+
+  HomeScreen({required this.habits});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Text('home'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('My Habits'),
+      ),
+      body: ListView.builder(
+        itemCount: habits.length,
+        itemBuilder: (context, index) {
+          final habit = habits[index];
+          return ListTile(
+            title: Text(habit.name),
+            subtitle: Text(habit.description),
+            trailing: Checkbox(
+              value: habit.isDone, // Assume you have an isDone field in Habit
+              onChanged: (bool? value) {
+                // Handle marking the habit as done
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }

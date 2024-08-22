@@ -85,4 +85,8 @@ class AuthService {
       );
     }
   }
+
+  void signout(){
+    _auth.signOut();
+  }
 }
