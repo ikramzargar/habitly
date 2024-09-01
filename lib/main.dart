@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:habitly/screens/home.dart';
+import 'package:habitly/screens/nav.dart';
 import 'package:habitly/screens/logIn.dart';
 import 'package:habitly/screens/onboarding_screen.dart';
 import 'package:habitly/screens/setup.dart';
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home:  SetupScreen(),  // Start with the AuthenticationWrapper
+      home:  NavScreen(),  // Start with the AuthenticationWrapper
     );
   }
 }

@@ -2,7 +2,7 @@
 // import 'package:habitly/globals/colors.dart';
 // import 'package:habitly/globals/text_styles.dart';
 // import 'package:habitly/models/habit.dart';
-// import 'package:habitly/screens/home.dart';
+// import 'package:habitly/screens/nav.dart';
 // import 'package:habitly/widgtes/blue_button.dart';
 //
 // class SetupScreen extends StatefulWidget {
@@ -204,7 +204,7 @@ import 'package:flutter/material.dart';
 import 'package:habitly/globals/colors.dart';
 import 'package:habitly/globals/text_styles.dart';
 import 'package:habitly/models/habit.dart';
-import 'package:habitly/screens/home.dart';
+import 'package:habitly/screens/nav.dart';
 
 import '../widgtes/blue_button.dart';
 import 'add_habit.dart';  // Import the new screen
@@ -318,7 +318,7 @@ class _SetupScreenState extends State<SetupScreen> {
               callback: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => HomeScreen(habits: habits),
+                    builder: (context) => NavScreen(),
                   ),
                 );
               },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habitly/globals/colors.dart';
-import 'package:habitly/screens/home.dart';
+import 'package:habitly/screens/nav.dart';
 import 'package:habitly/screens/register.dart';
 import 'package:habitly/services/auth.dart';
 import 'package:habitly/widgtes/blue_button.dart';
